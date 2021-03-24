@@ -22,10 +22,10 @@ yarn 1.22.10
 #### 5、webpack.config.js 配置项
 
 ```js
- output: {
-        filename: '[name].[hash].js',
-        path: path.resolve(__dirname, 'dist/js'),
-    },
+output: {
+    filename: '[name].[hash].js',
+    path: path.resolve(__dirname, 'dist/js'),
+},
 // [hash] - 本应用中任意文件更新，都会导致所有输出包名变化
 
 // [chunkhash] - 本应用中有几个模块更新，导致几个模块包名变化
@@ -33,19 +33,19 @@ yarn 1.22.10
 // [contenthash:8] - 本应用打包输出文件级别的更新，导致输出文件名变化 数字表示截取长度
 ```
 
-#### package.json 配置打包相关命令和入口
+#### 6、package.json 配置打包相关命令和入口
 
 ```js
 "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:prod": "set NODE_ENV=prod&& webpack --progress --config build/webpack.prod.js"
-   },
-  //  set 设置环境变量
-  //  webpack是编译命令 --progress显示打包过程 --config后面跟编译的配置文件
+},
+//  set 设置环境变量
+//  webpack是编译命令 --progress显示打包过程 --config后面跟编译的配置文件
 
 ```
 
-#### 基础配置|开发环境配置|生产配置
+#### 7、基础配置|开发环境配置|生产配置
 
 ```js
 webpack.config.js;
@@ -54,8 +54,8 @@ webpack.prod.js;
 ```
 
 踩坑的地方：
-&nbsp;&nbsp; 配置了 babel-loader，但是没有生效，打包的文件依然是 ES6 语法，网上各种百度，各种方法都尝试了还是不行，因为我用的是 webpack5.x webpack 官方有个[target](https://webpack.docschina.org/configuration/target/)
-如下配置即可
+1、配置了 babel-loader，但是没有生效，打包的文件依然是 ES6 语法，网上各种百度，各种方法都尝试了还是不行，因为我用的是 webpack5.x webpack 官方有个[target](https://webpack.docschina.org/configuration/target/)
+如下配置即可，填上这个属性以后就可以在 IE11 正常打开了
 
 ```js
 module.exports = {
@@ -64,16 +64,14 @@ module.exports = {
 };
 ```
 
-填上这个属性以后就可以在 IE11 正常打开了<br>
-
-&nbsp;&nbsp; url-loader 在处理图片的时候，在针对小于 limit 限制的时候，把图片转成 base64，替换到 js 里面，针对大于限制的则启用 file-loader 将文件拷贝到静态资源 assets/img 下，开发环境只需要配置 file-loader 即可，针对
+2、url-loader 在处理图片的时候，在针对小于 limit 限制的时候，把图片转成 base64，替换到 js 里面，针对大于限制的则启用 file-loader 将文件拷贝到静态资源 assets/img 下，开发环境只需要配置 file-loader 即可，针对
 生产环境才配置 url-loader 处理，配置了 url-loader 就不要再配置 file-loader.
 
-&nbsp;&nbsp; 包和包之间的关系很难理清除，经常是版本不兼容，或者不匹配，建议多看官方文档
+3、包和包之间的关系很难理清除，经常是版本不兼容，或者不匹配，建议多看官方文档
 
 ## 靓点
 
-#### 使用了变量注入插件
+#### 1、使用了变量注入插件
 
 ```js
     new webpack.DefinePlugin({ // 每一对键值都会被注入到代码当中
@@ -81,7 +79,7 @@ module.exports = {
     }),
 ```
 
-#### 编译后的 js 自动替换到 html 模板中
+#### 2、编译后的 js 自动替换到 html 模板中
 
 ```js
     new HtmlWebpackPlugin({
@@ -90,7 +88,7 @@ module.exports = {
     }),
 ```
 
-#### 使用了 dllPlugin 打包第三方插件 缩短 webapck 打包时间
+#### 3、使用了 dllPlugin 打包第三方插件 缩短 webapck 打包时间
 
 ```js
     //webpack.config.js
@@ -136,7 +134,7 @@ module.exports = {
 
 ```
 
-#### 热更新功能
+#### 4、热更新功能
 
 ```js
     devServer: {
@@ -166,7 +164,7 @@ module.exports = {
     ],
 ```
 
-#### 打包清除原文件功能 | 复制静态资源文件功能
+#### 5、打包清除原文件功能 | 复制静态资源文件功能
 
 ```js
     output: {
@@ -189,7 +187,7 @@ module.exports = {
     ],
 ```
 
-#### 分包功能 | tree-shaking 摇晃树
+#### 6、分包功能 | tree-shaking 摇晃树
 
 ```js
     //webpack.prod.js
@@ -229,7 +227,7 @@ module.exports = {
     },
 ```
 
-#### webpack 编译分析
+#### 7、webpack 编译分析
 
 ```js
 //webpack.prod.js
@@ -271,8 +269,8 @@ flag &&
 
 ## 使用说明
 
-#### yarn install 安装项目所需依赖
+#### 1、yarn install 安装项目所需依赖
 
-#### yarn dev 开发环境
+#### 2、yarn dev 开发环境
 
-#### yarn build:prod 生产打包
+#### 3、yarn build:prod 生产打包
