@@ -8,7 +8,6 @@ const {
 
 module.exports = merge(common, {
     mode: 'development',
-    entry: './src/index.js',
     devtool: 'inline-source-map', //开启sourceMap便于追踪定位问题
     resolve: {
         // 配置省略文件路径的后缀名
@@ -42,7 +41,7 @@ module.exports = merge(common, {
         compress: true, //Enable gzip compression for everything served
         overlay: true, //用于在浏览器输出编译错误的，默认是关闭的
         stats: "errors-only", //To show only errors in your bundle
-        open: false, //When open is enabled, the dev server will open the browser.
+        open: true, //When open is enabled, the dev server will open the browser.
         quiet: true, // lets WebpackDashboard do its thing
         proxy: {
             "/api": {

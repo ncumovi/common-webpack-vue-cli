@@ -16,7 +16,6 @@ var env = process.env.NODE_ENV || 'dev',
     flag = env == 'ana';
 const prodConfig = merge(common, {
     mode: 'production',
-    entry: './src/index.js',
     output: {
         filename: 'js/[name].[hash].js',
         path: path.resolve(__dirname, '../dist'),

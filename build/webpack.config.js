@@ -7,7 +7,7 @@ const {
 } = require('vue-loader');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/main.js',
     output: {
         filename: 'js/[name].[hash].js',
         publicPath: process.env.NODE_ENV != 'prod' ? '/' : '../dist/',
