@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+
 //使用vue-loader@15以上都需要使用vueloaderplugin这个插件
 const {
     VueLoaderPlugin
@@ -93,4 +94,4 @@ module.exports = {
             manifest: require('../vender-manifest.json')
         }),
     ],
-};
+}

@@ -5,7 +5,7 @@
       <p>我是副标题</p>
     </h1>
     <div class="movi">我是背景图</div>
-    <img src="../assets/img/avagtor.jpg" alt="" />
+    <img :src="require('@/assets/img/avagtor.jpg')" alt="" />
     <!-- <el-button type="danger">button</el-button> -->
   </div>
 </template>

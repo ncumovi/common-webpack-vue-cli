@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const common = require('./webpack.config')
 const {
@@ -29,7 +30,13 @@ module.exports = merge(common, {
     },
     plugins: [
         //热更新
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [{
+                from: 'public',
+                to: "../dist"
+            }],
+        }),
     ],
     devServer: {
         contentBase: path.join(__dirname, '../dist'), //本地服务器所加载的页面所在的目录

@@ -1,13 +1,3 @@
-// /$$
-// $ @Author: liwei9
-// $ @Date: 2021 - 03 - 24 09: 15: 25
-// $ @LastEditTime: 2021 - 03 - 24 09: 15: 26
-// $ @LastEditors: your name
-// $ @Description: dll配置文件
-// $ @FilePath: \movi - com - eng - pro\ build\ webpack.dll.config.js
-// $ /
-
-
 const path = require('path');
 const webpack = require('webpack');
 // const config = require('../config');

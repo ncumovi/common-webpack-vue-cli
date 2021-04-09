@@ -1,23 +1,22 @@
 <template>
   <div>
-    <img alt="Vue logo" src="./assets/img/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    <van-button type="primary">Ö÷Òª°´Å¥</van-button>
+    <router-link to="home"> to home</router-link>
+
+    <router-link to="page"> to page</router-link>
+    <router-link to="map"> to map</router-link>
+
+    <router-view> </router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/helloWorld.vue";
-
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-  },
 };
 </script>
 
 <style>
+@import "./assets/common";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
